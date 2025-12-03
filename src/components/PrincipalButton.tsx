@@ -1,0 +1,7 @@
+function Button({text}:{text:string}) {
+
+    return <button className="bg-[#E62702] p-4 pl-6 pr-6 font-roboto text-15 font-bold shadow-lg hover:bg-[#992C2A] border-1 border-black" >{text}</button>;
+    
+}
+
+export default Button;
