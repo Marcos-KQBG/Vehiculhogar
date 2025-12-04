@@ -2,10 +2,12 @@ import InputText from './InputText';
 import RegisterInput from './RegisterInput';
 import foto from '../assets/ChatGPT Image 16 nov 2025, 14_58_47.png'
 import UserImage from './UserImage';
-import PrincipalButton from './PrincipalButton';
+import RegisterButton from './RegisterButton';
 import { useState } from "react"
 
 function DivBody() {
+
+    const [users, setUsers] = useState<any[]>([]);
 
     const [formData, setFormData] = useState({
         username: "",
@@ -19,23 +21,28 @@ function DivBody() {
         setFormData(prev => ({ ...prev, [field]: value }));
     };
 
+    const handleRegister = () => {
+        setUsers(prev => [...prev, formData]);
+        console.log("Usuarios guardados:", users);
+    };
+
     console.log("Datos guardados:", formData);
 
     return (
         <>
             <div className='flex flex-col md:flex-row gap-10 justify-around'>
 
-                
+
                 <div className='flex items-center order-2 md:order-1 flex-col'>
                     <div className="hidden md:block size-95 ml-15 mt-10">
                         <UserImage src={foto} alt="App logo" />
                     </div>
                     <div className="md:ml-18 mt-10">
-                        <PrincipalButton text="REGISTRARSE" />
+                        <RegisterButton onClick={handleRegister} text = "REGISTRARSE" />
                     </div>
                 </div>
 
-                
+
                 <div className='order-1 md:mt-10 md:order-2'>
 
                     <div className="flex flex-col p-3 gap-2">
