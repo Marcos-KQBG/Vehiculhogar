@@ -10,8 +10,6 @@ function List() {
                 <DivUpperMenu />
                 <DivBodyList />
                 <DivFooter />
-            
-            
 
             <h1>Lista de Vehículos</h1>
             <Link to ="/">Ir a Registro</Link>
