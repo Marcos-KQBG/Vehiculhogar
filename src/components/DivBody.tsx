@@ -25,7 +25,7 @@ function DivBody() {
         <>
             <div className='flex flex-col md:flex-row gap-10 justify-around'>
 
-                {/* Columna izquierda */}
+                
                 <div className='flex items-center order-2 md:order-1 flex-col'>
                     <div className="hidden md:block size-95 ml-15 mt-10">
                         <UserImage src={foto} alt="App logo" />
@@ -35,7 +35,7 @@ function DivBody() {
                     </div>
                 </div>
 
-                {/* Inputs */}
+                
                 <div className='order-1 md:mt-10 md:order-2'>
 
                     <div className="flex flex-col p-3 gap-2">
