@@ -10,7 +10,6 @@ function Register() {
             <h1>Registro de Vehículos</h1>
             <Link to ="/List">Ir a Lista</Link>
 
-
         </>
     )
 }
