@@ -26,7 +26,6 @@ function DivBody() {
         console.log("Usuarios guardados:", users);
     };
 
-    console.log("Datos guardados:", formData);
 
     return (
         <>
