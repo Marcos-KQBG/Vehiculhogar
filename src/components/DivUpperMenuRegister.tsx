@@ -36,7 +36,7 @@ function DivUpperMenuRegister() {
                     <ImageButton src={fotoflecha} alt="icono flecha" />
                 </div>
                 <div>
-                    <MenuText text="Registrar" />
+                    <MenuText text="REGISTRO" />
                 </div>
                 <div className=" size-20 ">
                     <ImageButton src={fotoayuda} alt="icono ayuda" />

@@ -8,6 +8,7 @@ import UseRegisterForm from '../hooks/UseRegisterForm';
 function DivBody() {
 
     const {  handleInput, handleRegister } = UseRegisterForm();
+    
 
     return (
         <>
