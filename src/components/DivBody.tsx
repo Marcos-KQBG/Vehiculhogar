@@ -3,30 +3,11 @@ import RegisterInput from './RegisterInput';
 import foto from '../assets/ChatGPT Image 16 nov 2025, 14_58_47.png'
 import UserImage from './UserImage';
 import RegisterButton from './RegisterButton';
-import { useState } from "react"
+import UseRegisterForm from '../hooks/UseRegisterForm';
 
 function DivBody() {
 
-    const [users, setUsers] = useState<any[]>([]);
-
-    const [formData, setFormData] = useState({
-        username: "",
-        password: "",
-        telephone: "",
-        email: "",
-        dni: ""
-    });
-
-    const handleInput = (field: string, value: string) => {
-        setFormData(prev => ({ ...prev, [field]: value }));
-    };
-
-    const handleRegister = () => {
-        setUsers(prev => [...prev, formData]);
-        console.log("Usuarios guardados:", users);
-    };
-
-    console.log("Datos guardados:", formData);
+    const {  handleInput, handleRegister } = UseRegisterForm();
 
     return (
         <>
