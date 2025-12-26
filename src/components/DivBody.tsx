@@ -33,6 +33,7 @@ function DivBody() {
                             onChange={(v) => handleInput("username", v)}
                             placeholder="Nombre de usuario"
                             type="text"
+                            required={true}
                         />
                     </div>
 
@@ -42,6 +43,7 @@ function DivBody() {
                             onChange={(v) => handleInput("password", v)}
                             placeholder="Contraseña"
                             type="password"
+                            required={true}
                         />
                     </div>
 
@@ -51,6 +53,7 @@ function DivBody() {
                             onChange={(v) => handleInput("telephone", v)}
                             placeholder="Teléfono"
                             type="tel"
+                            required={true}
                         />
                     </div>
 
@@ -60,6 +63,7 @@ function DivBody() {
                             onChange={(v) => handleInput("email", v)}
                             placeholder="Correo electrónico"
                             type="email"
+                            required={true}
                         />
                     </div>
 
@@ -69,6 +73,7 @@ function DivBody() {
                             onChange={(v) => handleInput("dni", v)}
                             placeholder="Dni"
                             type="text"
+                            required={true}
                         />
                     </div>
 
