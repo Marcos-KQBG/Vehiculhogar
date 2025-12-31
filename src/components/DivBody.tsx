@@ -1,4 +1,4 @@
-import InputText from './InputText';
+import FormLabel from './FormLabel';
 import RegisterInput from './RegisterInput';
 import foto from '../assets/ChatGPT Image 16 nov 2025, 14_58_47.png'
 import UserImage from './UserImage';
@@ -14,21 +14,10 @@ function DivBody() {
         <>
             <div className='flex flex-col md:flex-row gap-10 justify-around'>
 
-
-                <div className='flex items-center order-2 md:order-1 flex-col'>
-                    <div className="hidden md:block size-95 ml-15 mt-10">
-                        <UserImage src={foto} alt="App logo" />
-                    </div>
-                    <div className="md:ml-18 mt-10">
-                        <RegisterButton onClick={handleRegister} text = "REGISTRARSE" />
-                    </div>
-                </div>
-
-
-                <div className='order-1 md:mt-10 md:order-2'>
+                <form id="registerForm" onSubmit={handleRegister} className='order-1 md:mt-10 md:order-2'>
 
                     <div className="flex flex-col p-3 gap-2">
-                        <InputText text="Nombre de usuario" />
+                        <FormLabel text="Nombre de usuario"  />             
                         <RegisterInput
                             onChange={(v) => handleInput("username", v)}
                             placeholder="Nombre de usuario"
@@ -38,7 +27,7 @@ function DivBody() {
                     </div>
 
                     <div className="flex flex-col p-3 gap-2">
-                        <InputText text="Contraseña" />
+                        <FormLabel text="Contraseña" />
                         <RegisterInput
                             onChange={(v) => handleInput("password", v)}
                             placeholder="Contraseña"
@@ -48,7 +37,7 @@ function DivBody() {
                     </div>
 
                     <div className="flex flex-col p-3 gap-2">
-                        <InputText text="Teléfono" />
+                        <FormLabel text="Teléfono" />
                         <RegisterInput
                             onChange={(v) => handleInput("telephone", v)}
                             placeholder="Teléfono"
@@ -58,7 +47,7 @@ function DivBody() {
                     </div>
 
                     <div className="flex flex-col p-3 gap-2">
-                        <InputText text="Correo electrónico" />
+                        <FormLabel text="Correo electrónico" />
                         <RegisterInput
                             onChange={(v) => handleInput("email", v)}
                             placeholder="Correo electrónico"
@@ -68,7 +57,7 @@ function DivBody() {
                     </div>
 
                     <div className="flex flex-col p-3 gap-2">
-                        <InputText text="Dni" />
+                        <FormLabel text="Dni" />
                         <RegisterInput
                             onChange={(v) => handleInput("dni", v)}
                             placeholder="Dni"
@@ -77,6 +66,16 @@ function DivBody() {
                         />
                     </div>
 
+                </form>
+
+
+                <div className='flex items-center order-2 md:order-1 flex-col'>
+                    <div className="hidden md:block size-95 ml-15 mt-10">
+                        <UserImage src={foto} alt="App logo" />
+                    </div>
+                    <div className="md:ml-18 mt-10">
+                        <RegisterButton type="submit" text = "REGISTRARSE" form="registerForm" />
+                    </div>
                 </div>
 
             </div>
