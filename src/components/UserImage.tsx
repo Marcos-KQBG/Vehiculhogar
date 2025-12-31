@@ -4,6 +4,6 @@ interface ImageData{
 }
 
 function UserImage({src, alt}: ImageData) {
-    return <img   src={src} alt={alt}/>;
+    return <img  src={src} alt={alt}/>;
 }
 export default UserImage;

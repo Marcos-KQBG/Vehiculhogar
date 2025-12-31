@@ -9,9 +9,9 @@ function UpperSelector({text}: {text: string}) {
     ]
 
     return (
-        <select className="text-[#FFFFFF] font-roboto text-15 font-bold hover:text-[#A8A8A8]">
+        <select defaultValue="defaultValue" className="text-[#FFFFFF] font-roboto text-15 font-bold hover:text-[#A8A8A8]">
             
-            <option value="defaultValue" disabled selected>{text}</option>
+            <option value="defaultValue" disabled>{text}</option>
             {registers.map(register => (
                 <option key={register.id} value={register.value}>{register.value}</option>
             ))}

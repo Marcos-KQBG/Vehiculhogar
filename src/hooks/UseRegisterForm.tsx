@@ -16,12 +16,21 @@ function UseRegisterForm() {
             setFormData(prev => ({ ...prev, [field]: value }));
         };
     
-        const handleRegister = () => {
+        const handleRegister = (e: React.FormEvent) => {
+            e.preventDefault();
+            
             setUsers(prev => [...prev, formData]);
-            console.log("Usuarios guardados:", users);
+            setFormData({
+                username: "",
+                password: "",
+                telephone: "",
+                email: "",
+                dni: ""
+            });
+            console.log("Usuarios guardados:", [...users, formData]);
         };
     
-        console.log("Datos guardados:", formData);
+        
 
         return {
             
