@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function UseRegisterForm() {
+function useRegisterForm() {
 
      const [users, setUsers] = useState<any[]>([]);
     
@@ -40,4 +40,4 @@ function UseRegisterForm() {
         }
     
 }
-export default UseRegisterForm;
+export default useRegisterForm;

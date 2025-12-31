@@ -3,11 +3,11 @@ import RegisterInput from './RegisterInput';
 import foto from '../assets/ChatGPT Image 16 nov 2025, 14_58_47.png'
 import UserImage from './UserImage';
 import RegisterButton from './RegisterButton';
-import UseRegisterForm from '../hooks/UseRegisterForm';
+import useRegisterForm from '../hooks/UseRegisterForm';
 
 function DivBody() {
 
-    const {  handleInput, handleRegister } = UseRegisterForm();
+    const {  handleInput, handleRegister } = useRegisterForm();
     
 
     return (
