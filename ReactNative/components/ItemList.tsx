@@ -1,22 +1,40 @@
 import { Colors } from "@/constants/Colors";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, Pressable } from "react-native";
+import { useRouter } from "expo-router";
 
 interface ItemListData {
     modelo: string,
     matricula : string,
     ano: string,
     motor: string,
-    imagen: string
+    imagen: string,
+    onPress?: () => void
 }
 
-function ItemList({modelo, matricula, ano, motor, imagen} : ItemListData) {
+function ItemList({modelo, matricula, ano, motor, imagen, onPress} : ItemListData) {
+    const router = useRouter();
+
+    const handlePress = () => {
+        if (onPress) {
+            onPress();
+        } else {
+            router.push({
+                pathname: "../vehicle",
+                params: { modelo, matricula, ano, motor, imagen }
+            });
+        }
+    };
 
     return (
-        <View style={styles.container}>
+        <Pressable onPress={handlePress} style={({ pressed }) => [
+            styles.container,
+            pressed && styles.containerPressed
+        ]}>
             <Image 
                 source={{ uri: imagen }} 
                 style={styles.image}
                 resizeMode="cover"
+                alt = {modelo}
             />
             <View style={styles.infoContainer}>
                 <Text style={styles.modelo}>{modelo}</Text>
@@ -33,7 +51,8 @@ function ItemList({modelo, matricula, ano, motor, imagen} : ItemListData) {
                     <Text style={styles.value}>{motor}</Text>
                 </View>
             </View>
-        </View>
+        
+        </Pressable>
     );
 
     
@@ -51,6 +70,10 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 4,
         elevation: 3,
+        
+    },
+    containerPressed: {
+        opacity: 0.7,
     },
     image: {
         width: '100%',
@@ -72,10 +95,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     label: {
+        fontFamily: "Roboto",
         fontSize: 12,
         color: Colors.textSecondary,
     },
     value: {
+        fontFamily: "Roboto",
         fontSize: 12,
         color: Colors.surface,
         fontWeight: '500',

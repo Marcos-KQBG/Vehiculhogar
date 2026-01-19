@@ -39,6 +39,7 @@ export default function Search() {
 
 const styles = StyleSheet.create({
   container: {
+    
     backgroundColor: Colors.background,
     flex: 1,
     paddingTop: 10,
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: 10,
+    gap: 16,
     columnGap: 16,
     rowGap: 16,
   },
