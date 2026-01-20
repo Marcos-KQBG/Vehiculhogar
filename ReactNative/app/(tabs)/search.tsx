@@ -1,17 +1,20 @@
 import ItemList from '@/components/ItemList';
-import { Colors } from '@/constants/Colors';
 import useFilteredVehicles from '@/hooks/useFilteredVehicles';
+import React from 'react';
 import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import { useTheme } from '../ThemeContext';
 
 export default function Search() {
   const { searchQuery, setSearchQuery, filteredVehiculos } = useFilteredVehicles();
+  const { colors } = useTheme();
+  const styles = React.useMemo(() => makeStyles(colors), [colors]);
 
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.searchInput}
         placeholder="Buscar por modelo o matrícula..."
-        placeholderTextColor={Colors.textSecondary}
+        placeholderTextColor={colors.textSecondary}
         value={searchQuery}
         onChangeText={setSearchQuery}
       />
@@ -37,16 +40,15 @@ export default function Search() {
 }
 
 
-const styles = StyleSheet.create({
+const makeStyles = (colors: any) => StyleSheet.create({
   container: {
-    
-    backgroundColor: Colors.background,
+    backgroundColor: colors.background,
     flex: 1,
     paddingTop: 10,
   },
   searchInput: {
-    backgroundColor: Colors.textPrimary,
-    color: Colors.background,
+    backgroundColor: colors.textPrimary,
+    color: colors.background,
     paddingHorizontal: 15,
     paddingVertical: 12,
     marginHorizontal: 10,
