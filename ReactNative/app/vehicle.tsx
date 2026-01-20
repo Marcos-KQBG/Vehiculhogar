@@ -1,12 +1,16 @@
-import { Colors } from '@/constants/Colors';
-import { useLocalSearchParams, useRouter } from 'expo-router';
-import { Image, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { vehiculos } from '@/constants/Vehicles';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import React from "react";
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useTheme } from './ThemeContext';
 
 export default function Vehicle() {
   const params = useLocalSearchParams();
   const router = useRouter();
+
+  const { colors } = useTheme();
+  const styles = React.useMemo(() => makeStyles(colors), [colors]);
   
   const { matricula } = params;
   const vehiculo = vehiculos.get(matricula as string);
@@ -23,7 +27,7 @@ export default function Vehicle() {
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <Pressable onPress={() => router.back()} style={styles.backButton}>
-          <FontAwesome name="arrow-left" size={24} color={Colors.textPrimary} />
+          <FontAwesome name="arrow-left" size={24} color={colors.textPrimary} />
         </Pressable>
         <Text style={styles.headerTitle}>Detalles del Vehículo</Text>
         <View style={{ width: 40 }} />
@@ -79,10 +83,10 @@ export default function Vehicle() {
   );
 }
 
-const styles = StyleSheet.create({
+const makeStyles = (colors: any) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -90,7 +94,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: Colors.background,
+    backgroundColor: colors.background,
   },
   backButton: {
     padding: 8,
@@ -99,12 +103,12 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontSize: 18,
     fontWeight: 'bold',
-    color: Colors.textPrimary,
+    color: colors.textPrimary,
   },
   vehicleImage: {
     width: '100%',
     height: 300,
-    backgroundColor: Colors.textSecondary,
+    backgroundColor: colors.textSecondary,
   },
   content: {
     padding: 20,
@@ -113,11 +117,11 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontSize: 28,
     fontWeight: 'bold',
-    color: Colors.textPrimary,
+    color: colors.textPrimary,
     marginBottom: 20,
   },
   section: {
-    backgroundColor: Colors.textPrimary,
+    backgroundColor: colors.textPrimary,
     borderRadius: 12,
     padding: 16,
     marginBottom: 20,
@@ -126,7 +130,7 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontSize: 16,
     fontWeight: 'bold',
-    color: Colors.background,
+    color: colors.background,
     marginBottom: 12,
   },
   infoRow: {
@@ -135,18 +139,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 8,
     borderBottomWidth: 1,
-    borderBottomColor: Colors.textSecondary,
+    borderBottomColor: colors.textSecondary,
   },
   infoLabel: {
     fontFamily: "Roboto",
     fontSize: 14,
-    color: Colors.textSecondary,
+    color: colors.textSecondary,
     fontWeight: '500',
   },
   infoValue: {
     fontFamily: "Roboto",
     fontSize: 14,
-    color: Colors.background,
+    color: colors.background,
     fontWeight: 'bold',
   },
   buttonContainer: {
@@ -164,10 +168,10 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   editButton: {
-    backgroundColor: Colors.primary || '#4CAF50',
+    backgroundColor: colors.primary || '#4CAF50',
   },
   appointmentButton: {
-    backgroundColor: Colors.primary || '#2196F3',
+    backgroundColor: colors.primary || '#2196F3',
   },
   buttonPressed: {
     opacity: 0.8,

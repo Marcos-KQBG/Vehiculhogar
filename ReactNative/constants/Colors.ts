@@ -1,7 +1,17 @@
 export const Colors = {
-    background: '#1B2029',    // Fondo principal de la app
-    surface: '#252B36',       // Para las cajas de texto (inputs)
-    primary: '#5C7CFA',       // Para botones y elementos interactivos
-    textPrimary: '#FFFFFF',   // Blanco para lectura principal
-    textSecondary: '#ADB5BD', // Gris para labels como "Nombre de usuario"
-} as const;
+    dark : {
+        background: '#1B2029',    // Fondo principal de la app
+        surface: '#252B36',       // Para las cajas de texto (inputs)
+        primary: '#5C7CFA',       // Para botones y elementos interactivos
+        textPrimary: '#FFFFFF',   // Blanco para lectura principal
+        textSecondary: '#ADB5BD', // Gris para labels como "Nombre de usuario"
+    },
+    light : {
+        background: '#FFFFFF',
+        surface: '#F8F9FA',
+        primary: '#1C7ED6',
+        textPrimary: '#495057',
+        textSecondary: '#868E96',
+    }
+};
+export type ThemeColors = typeof Colors.light;

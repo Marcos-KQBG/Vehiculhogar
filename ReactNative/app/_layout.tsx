@@ -1,5 +1,6 @@
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
+import { ThemeProvider } from "./ThemeContext";
 
 export default function RootLayout() {
 
@@ -12,9 +13,12 @@ export default function RootLayout() {
   }
   
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="vehicle" options={{ headerShown: false }} />
-    </Stack>
+    <ThemeProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="vehicle" options={{ headerShown: false }} />
+        <Stack.Screen name="theme" options={{ headerShown: false }} />
+      </Stack>
+    </ThemeProvider>
   )
 }
