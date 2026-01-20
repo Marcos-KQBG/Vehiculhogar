@@ -55,7 +55,7 @@ function ItemList({modelo, matricula, ano, motor, imagen} : ItemListData) {
 
 const makeStyles = (colors: any) => StyleSheet.create({
     container: {
-        backgroundColor: colors.surface,
+        backgroundColor: colors.textPrimary,
         borderRadius: 12,
         overflow: 'hidden',
         margin: 8,
@@ -81,7 +81,7 @@ const makeStyles = (colors: any) => StyleSheet.create({
     modelo: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: colors.textPrimary,
+        color: colors.surface,
         marginBottom: 4,
     },
     detailRow: {
@@ -96,7 +96,7 @@ const makeStyles = (colors: any) => StyleSheet.create({
     value: {
         fontFamily: "Roboto",
         fontSize: 12,
-        color: colors.textPrimary,
+        color: colors.surface,
         fontWeight: '500',
     },
 });

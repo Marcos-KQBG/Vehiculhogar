@@ -1,15 +1,25 @@
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { StyleSheet, Switch, Text, View } from 'react-native';
-import { useTheme } from '../ThemeContext';
+import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
+import { useTheme } from './ThemeContext';
 
 export default function ThemeSettings() {
   const { colors, isDark, toggleTheme } = useTheme();
   const styles = React.useMemo(() => makeStyles(colors), [colors]);
   const router = useRouter();
 
-  return (
+  return (  
     <View style={styles.container}>
+
+      <View style={styles.header}>
+        <Pressable onPress={() => router.back()} style={styles.backButton}>
+          <FontAwesome name="arrow-left" size={24} color={colors.textPrimary} />
+        </Pressable>
+        <Text style={styles.headerTitle}>Tema</Text>
+        <View style={{ width: 40 }} />
+      </View>
+
       <View style={styles.row}>
         <View>
           <Text style={styles.title}>Modo oscuro</Text>
@@ -53,5 +63,22 @@ const makeStyles = (colors: any) => StyleSheet.create({
   hint: {
     marginTop: 16,
     color: colors.textSecondary,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: colors.background,
+  },
+  backButton: {
+    padding: 8,
+  },
+  headerTitle: {
+    fontFamily: "Roboto",
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: colors.textPrimary,
   },
 });

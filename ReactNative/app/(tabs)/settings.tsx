@@ -16,7 +16,7 @@ export default function Settings() {
         <FontAwesome name="chevron-right" size={18} color={colors.textSecondary} />
       </Pressable>
 
-      <Pressable style={styles.row} onPress={() => router.push('./theme') }>
+      <Pressable style={styles.row} onPress={() => router.push('../theme') }>
         <Text style={styles.title}>Tema</Text>
         <FontAwesome name="chevron-right" size={18} color={colors.textSecondary} />
       </Pressable>

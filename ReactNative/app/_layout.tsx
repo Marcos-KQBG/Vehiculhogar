@@ -17,6 +17,7 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="vehicle" options={{ headerShown: false }} />
+        <Stack.Screen name="theme" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   )
