@@ -2,12 +2,14 @@ import { Colors } from '@/constants/Colors';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Image, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { vehiculos } from '@/constants/Vehicles';
 
 export default function Vehicle() {
   const params = useLocalSearchParams();
   const router = useRouter();
   
-  const { modelo, matricula, ano, motor, imagen } = params;
+  const { matricula } = params;
+  const vehiculo = vehiculos.get(matricula as string);
 
   const handleEdit = () => {
     console.log('Editar vehículo:', matricula);
@@ -28,13 +30,13 @@ export default function Vehicle() {
       </View>
 
       <Image 
-        source={{ uri: typeof imagen === 'string' ? imagen : String(imagen) }} 
+        source={{ uri: vehiculo?.imagen }} 
         style={styles.vehicleImage}
         resizeMode="contain"
       />
 
       <View style={styles.content}>
-        <Text style={styles.modelo}>{modelo}</Text>
+        <Text style={styles.modelo}>{vehiculo?.modelo}</Text>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Información del Vehículo</Text>
@@ -46,12 +48,12 @@ export default function Vehicle() {
 
           <View style={styles.infoRow}>
             <Text style={styles.infoLabel}>Año:</Text>
-            <Text style={styles.infoValue}>{ano}</Text>
+            <Text style={styles.infoValue}>{vehiculo?.año}</Text>
           </View>
 
           <View style={styles.infoRow}>
             <Text style={styles.infoLabel}>Motor:</Text>
-            <Text style={styles.infoValue}>{motor}</Text>
+            <Text style={styles.infoValue}>{vehiculo?.motor}</Text>
           </View>
         </View>
 

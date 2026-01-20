@@ -11,22 +11,16 @@ interface ItemListData {
     onPress?: () => void
 }
 
-function ItemList({modelo, matricula, ano, motor, imagen, onPress} : ItemListData) {
+function ItemList({modelo, matricula, ano, motor, imagen} : ItemListData) {
     const router = useRouter();
 
-    const handlePress = () => {
-        if (onPress) {
-            onPress();
-        } else {
-            router.push({
-                pathname: "../vehicle",
-                params: { modelo, matricula, ano, motor, imagen }
-            });
-        }
-    };
+    
 
     return (
-        <Pressable onPress={handlePress} style={({ pressed }) => [
+        <Pressable onPress= {() => router.push({
+                pathname: "../vehicle",
+                params:  {matricula} 
+            })} style={({ pressed }) => [
             styles.container,
             pressed && styles.containerPressed
         ]}>
