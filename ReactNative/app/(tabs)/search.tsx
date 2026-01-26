@@ -67,6 +67,7 @@ const makeStyles = (colors: any) => StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    margin: 8,
     gap: 16,
     columnGap: 16,
     rowGap: 16,
