@@ -65,6 +65,8 @@ const makeStyles = (colors: any) => StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 4,
         elevation: 3,
+        flexGrow: 1,
+        maxWidth: '75%',
     },
     containerPressed: {
         opacity: 0.7,
