@@ -30,7 +30,7 @@ function ItemList({modelo, matricula, ano, motor, imagen} : ItemListData) {
                 source={{ uri: imagen }} 
                 style={styles.image}
                 resizeMode="cover"
-                alt= {modelo}
+                
             />
             <View style={styles.infoContainer}>
                 <Text style={styles.modelo}>{modelo}</Text>
