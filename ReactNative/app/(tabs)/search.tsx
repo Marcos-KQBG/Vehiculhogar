@@ -1,6 +1,6 @@
 import ItemList from '@/components/ItemList';
 import useFilteredVehicles from '@/hooks/useFilteredVehicles';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { useTheme } from '../ThemeContext';
 
@@ -8,6 +8,14 @@ export default function Search() {
   const { searchQuery, setSearchQuery, filteredVehiculos } = useFilteredVehicles();
   const { colors } = useTheme();
   const styles = React.useMemo(() => makeStyles(colors), [colors]);
+
+  console.log("Hora ANTES de renderizar:", new Date().toISOString());
+  console.time("Tiempo de renderización");
+
+  useEffect(() => {
+    console.timeEnd("Tiempo de renderización");
+    console.log("Hora DESPUÉS de renderizar:", new Date().toISOString());
+  });
 
   return (
     <View style={styles.container}>
@@ -23,16 +31,19 @@ export default function Search() {
         scrollEventThrottle={16}
       >
         <View style={styles.gridContainer}>
-          {filteredVehiculos.map((item) => (
-            <ItemList
-              key={item.matricula}
-              imagen={item.imagen}
-              modelo={item.modelo}
-              matricula={item.matricula}
-              ano={item.año.toString()}
-              motor={item.motor}
-            />
-          ))}
+          {Array.from({ length: 3000 }).map((_, index) => {
+            const item = filteredVehiculos[index % filteredVehiculos.length];
+            return (
+              <ItemList
+                key={index}
+                imagen={item.imagen}
+                modelo={item.modelo}
+                matricula={item.matricula}
+                ano={item.año.toString()}
+                motor={item.motor}
+              />
+            );
+          })}
         </View>
       </ScrollView>
     </View>
