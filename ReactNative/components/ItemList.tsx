@@ -19,16 +19,21 @@ function ItemList({modelo, matricula, ano, motor, imagen} : ItemListData) {
     const styles = React.useMemo(() => makeStyles(colors), [colors]);
 
     return (
-        <Pressable onPress= {() => router.push({
+        <Pressable
+            onPress={() => router.push({
                 pathname: "../vehicle",
                 params:  {matricula} 
-            })} style={({ pressed }) => [
-            styles.container,
-            pressed && styles.containerPressed
-        ]}>
+            })}
+            style={({ pressed }) => [
+                styles.container,
+                pressed && styles.containerPressed
+            ]}
+            testID="item-card"
+        >
             <Image 
                 source={{ uri: imagen }} 
                 style={styles.image}
+                testID="item-image"
                 resizeMode="cover"
                 
             />
