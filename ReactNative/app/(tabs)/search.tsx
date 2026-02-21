@@ -18,32 +18,31 @@ export default function Search() {
   });
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} >
       <TextInput
         style={styles.searchInput}
         placeholder="Buscar por modelo o matrícula..."
         placeholderTextColor={colors.textSecondary}
         value={searchQuery}
         onChangeText={setSearchQuery}
+        
       />
       <ScrollView
         contentContainerStyle={styles.listContent}
         scrollEventThrottle={16}
       >
-        <View style={styles.gridContainer}>
-          {Array.from({ length: 3000 }).map((_, index) => {
-            const item = filteredVehiculos[index % filteredVehiculos.length];
-            return (
-              <ItemList
-                key={index}
-                imagen={item.imagen}
-                modelo={item.modelo}
-                matricula={item.matricula}
-                ano={item.año.toString()}
-                motor={item.motor}
-              />
-            );
-          })}
+        <View style={styles.gridContainer} >
+          {filteredVehiculos.map((item) => (
+            <ItemList
+              key={item.matricula}
+              imagen={item.imagen}
+              modelo={item.modelo}
+              matricula={item.matricula}
+              ano={item.año.toString()}
+              motor={item.motor}
+              
+            />
+          ))}
         </View>
       </ScrollView>
     </View>

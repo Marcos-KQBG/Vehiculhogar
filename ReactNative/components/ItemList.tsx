@@ -12,7 +12,7 @@ interface ItemListData {
     onPress?: () => void
 }
 
-function ItemList({modelo, matricula, ano, motor, imagen} : ItemListData) {
+function ItemList({modelo, matricula, ano, motor, imagen, onPress} : ItemListData) {
     const router = useRouter();
     const { colors } = useTheme();
 
@@ -29,6 +29,7 @@ function ItemList({modelo, matricula, ano, motor, imagen} : ItemListData) {
                 pressed && styles.containerPressed
             ]}
             testID="item-card"
+            
         >
             <Image 
                 source={{ uri: imagen }} 
@@ -37,6 +38,7 @@ function ItemList({modelo, matricula, ano, motor, imagen} : ItemListData) {
                 resizeMode="cover"
                 
             />
+
             <View style={styles.infoContainer}>
                 <Text style={styles.modelo}>{modelo}</Text>
                 <View style={styles.detailRow}>

@@ -73,7 +73,6 @@ describe("Fichero ItemList: ItemList", () => {
     });
 
     test("Comprueba estilos para pressed true/false", () => {
-        
         const itemData = {
             modelo: "Test Model",
             matricula: "TEST123",
@@ -81,7 +80,7 @@ describe("Fichero ItemList: ItemList", () => {
             motor: "Test Motor",
             imagen: "https://via.placeholder.com/150"
         }
-        let tree: ReturnType<typeof create>;
+        let tree: any;
 
         act(() => {
             tree = create(
