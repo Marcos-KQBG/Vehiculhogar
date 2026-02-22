@@ -25,6 +25,9 @@ export default function Search() {
         placeholderTextColor={colors.textSecondary}
         value={searchQuery}
         onChangeText={setSearchQuery}
+        accessibilityRole="search"
+        accessibilityLabel="Buscar por modelo o matrícula"
+        accessibilityHint="Ingresa texto para filtrar la lista de vehículos"
         
       />
       <ScrollView

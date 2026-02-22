@@ -26,7 +26,12 @@ export default function Vehicle() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Pressable onPress={() => router.back()} style={styles.backButton}>
+        <Pressable
+          onPress={() => router.back()}
+          style={styles.backButton}
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+        >
           <FontAwesome name="arrow-left" size={24} color={colors.textPrimary} />
         </Pressable>
         <Text style={styles.headerTitle}>Detalles del Vehículo</Text>
@@ -65,6 +70,8 @@ export default function Vehicle() {
           <Pressable 
             style={({ pressed }) => [styles.button, styles.editButton, pressed && styles.buttonPressed]}
             onPress={handleEdit}
+            accessibilityRole="button"
+            accessibilityLabel={`Editar ${vehiculo?.modelo}`}
           >
             <FontAwesome name="edit" size={20} color="white" />
             <Text style={styles.buttonText}>Editar</Text>
@@ -73,6 +80,8 @@ export default function Vehicle() {
           <Pressable 
             style={({ pressed }) => [styles.button, styles.appointmentButton, pressed && styles.buttonPressed]}
             onPress={handleAddAppointment}
+            accessibilityRole="button"
+            accessibilityLabel={`Añadir cita para ${vehiculo?.modelo}`}
           >
             <FontAwesome name="calendar" size={20} color="white" />
             <Text style={styles.buttonText}>Añadir Cita</Text>

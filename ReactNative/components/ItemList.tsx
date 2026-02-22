@@ -24,19 +24,21 @@ function ItemList({modelo, matricula, ano, motor, imagen, onPress} : ItemListDat
                 pathname: "../vehicle",
                 params:  {matricula} 
             })}
+            accessibilityRole="button"
+            accessibilityLabel={`Ver detalle de ${modelo}`}
             style={({ pressed }) => [
                 styles.container,
                 pressed && styles.containerPressed
             ]}
             testID="item-card"
-            
         >
             <Image 
                 source={{ uri: imagen }} 
                 style={styles.image}
                 testID="item-image"
+                accessibilityRole="image"
+                accessibilityLabel={`${modelo} imagen`}
                 resizeMode="cover"
-                
             />
 
             <View style={styles.infoContainer}>

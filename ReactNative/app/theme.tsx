@@ -13,7 +13,12 @@ export default function ThemeSettings() {
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <Pressable onPress={() => router.back()} style={styles.backButton}>
+        <Pressable
+          onPress={() => router.back()}
+          style={styles.backButton}
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+        >
           <FontAwesome name="arrow-left" size={24} color={colors.textPrimary} />
         </Pressable>
         <Text style={styles.headerTitle}>Tema</Text>
